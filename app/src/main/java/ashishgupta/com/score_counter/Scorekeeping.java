@@ -14,7 +14,7 @@ public class Scorekeeping extends AppCompatActivity {
 
     TextView displayA,displayb,TeamA,TeamB;
     int scoreA=0,scoreB=0;
-    Button reset,save,data;
+    Button reset,save;
     Intent intent;
     Gameinfo game;
     Calendar now;
@@ -26,7 +26,6 @@ public class Scorekeeping extends AppCompatActivity {
         setContentView(R.layout.activity_scorekeeping);
         reset=(Button)findViewById(R.id.reset);
         save=(Button)findViewById(R.id.save);
-        data=(Button)findViewById(R.id.data);
         TeamA=(TextView)findViewById(R.id.TeamA);
         TeamB=(TextView)findViewById(R.id.TeamB);
         intent=getIntent();
@@ -61,12 +60,13 @@ public class Scorekeeping extends AppCompatActivity {
                 else
                 {game.setWinner(" --  DRAW -- ");}
                 Long i=handler.add_to_db(game);
-                Toast.makeText(getApplicationContext(),"Game No :"+i+ "Saved",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Game No :"+i,Toast.LENGTH_SHORT).show();
                 intent=new Intent(Scorekeeping.this,Main.class);
                 startActivity(intent);
 
             }
         });
+
 
 
 

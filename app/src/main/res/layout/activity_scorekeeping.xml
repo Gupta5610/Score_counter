@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -135,9 +136,12 @@
         android:text="Reset"
         android:id="@+id/reset"
         android:background="#FFFFC85B"
+        android:layout_marginBottom="54dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_marginRight="60dp"
+        android:layout_marginEnd="60dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -146,22 +150,11 @@
         android:id="@+id/save"
         android:background="#FFFFC85B"
         android:layout_alignTop="@+id/reset"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp" />
+        android:layout_toLeftOf="@+id/reset"
+        android:layout_toStartOf="@+id/reset"
+        android:layout_marginRight="56dp"
+        android:layout_marginEnd="56dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data"
-        android:id="@+id/data"
-        android:layout_alignTop="@+id/reset"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="29dp"
-        android:layout_marginEnd="29dp"
-        android:background="#FFFFC85B" />
 
 
 </RelativeLayout>

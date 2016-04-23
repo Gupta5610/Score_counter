@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class Main extends AppCompatActivity {
     EditText Team1,Team2;
     TextView first,second;
     AlertDialog.Builder builder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,13 @@ public class Main extends AppCompatActivity {
 
     public void onclick(View view)
     {
-        builder.show();
+        switch(view.getId())
+        {
+            case R.id.data: Intent intent= new Intent(Main.this,List.class);
+                            intent.putExtra("Option",1);
+                            startActivity(intent);
+                            break;
+            default:   builder.show();
+        }
     }
 }

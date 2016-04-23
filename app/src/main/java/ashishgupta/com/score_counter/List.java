@@ -18,7 +18,7 @@ public class List extends AppCompatActivity {
     private ListView listView;
     private Intent intent;  // for starting new activities
     private MyDBHandler handler; // for database Manipulation
-    private ArrayList<String> arr,scoreA,scoreB,winner;
+    private ArrayList<String> arr,scoreA,scoreB,winner,TeamA,TeamB;
     private String date;
     private Intent data; // for catching data from new activites
     private int option;
@@ -44,9 +44,12 @@ public class List extends AppCompatActivity {
 
         if(option==1) {   c = handler.all();  }
         else if(option==2) {
+
             scoreA=new ArrayList<String>();
             scoreB=new ArrayList<String>();
             winner=new ArrayList<String>();
+            TeamA=new ArrayList<String>();
+            TeamB=new ArrayList<String>();
 
             date=data.getStringExtra("Date");
             c=handler.databasetostring(date);  }
@@ -67,10 +70,12 @@ public class List extends AppCompatActivity {
             else if(option==2)
             {
                 while (c.moveToNext()) {
-                    arr.add(c.getString(1)+" Vs "+c.getString(2));
-                    scoreA.add(c.getString(3));
-                    scoreB.add(c.getString(4));
-                    winner.add(c.getString(5));
+                    TeamA.add(c.getString(2));
+                    TeamB.add(c.getString(3));
+                    arr.add(c.getString(2)+" Vs "+c.getString(3));
+                    scoreA.add(c.getString(4));
+                    scoreB.add(c.getString(5));
+                    winner.add(c.getString(6));
                 }
             }
 
@@ -101,7 +106,7 @@ public class List extends AppCompatActivity {
                 {
                     alertDialog.setTitle("Winner : "+winner.get(position).toString());
                     alertDialog.setCancelable(true);
-                    alertDialog.setMessage(c.getString(1)+"\n\n Score :"+c.getString(3)+"\n\n "+c.getString(2)+"\n\nScore :"+c.getString(4));
+                    alertDialog.setMessage(TeamA.get(position)+" - Score :"+scoreA.get(position).toString()+"\n\n "+TeamB.get(position)+" - Score :"+scoreB.get(position).toString());
                     alertDialog.show();
                 }
             }
