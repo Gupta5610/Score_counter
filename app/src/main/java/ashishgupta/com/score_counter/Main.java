@@ -38,7 +38,7 @@ public class Main extends AppCompatActivity {
         l1.addView(second);
         l1.addView(Team2,LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter the names of the Team");
+        builder.setTitle("Enter Team Name :-");
         builder.setView(l1);
         builder.setCancelable(false);
         builder.setNeutralButton("Continue ...", new DialogInterface.OnClickListener() {
